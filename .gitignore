@@ -1,0 +1,31 @@
+# Python, Flask and PyMongo
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+instance/
+.build/
+dist/
+*.egg
+
+# Logs
+logs/
+*.log
+*.log.*
+*.access.log
+
+# IDEs and Editors
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Other
+*.env
+*.pyc
+*.swp
