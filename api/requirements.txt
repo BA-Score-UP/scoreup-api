@@ -1,6 +1,4 @@
---index-url https://pypi.org/simple
---extra-index-url https://pypi.org/simple
-pymongo==4.0.1
-flask==2.1.0
-python-dotenv==0.19.1
-gunicorn==20.1.0
+pymongo[srv]
+flask
+python-dotenv
+gunicorn

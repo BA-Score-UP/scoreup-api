@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a8fac30584cbe3840899e4afb7668de3f3df2298dc39f4d1e2112d5c2aae9009"
+            "sha256": "36ec190ca3a0bb373f60c1dc2cdf7d81fde7a8499975e833d9c602b7ad5bb9bf"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -129,6 +129,9 @@
             "version": "==2.1.2"
         },
         "pymongo": {
+            "extras": [
+                "srv"
+            ],
             "hashes": [
                 "sha256:016c412118e1c23fef3a1eada4f83ae6e8844fd91986b2e066fc1b0013cdd9ae",
                 "sha256:01f7cbe88d22440b6594c955e37312d932fd632ffed1a86d0c361503ca82cc9d",
