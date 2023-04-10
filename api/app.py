@@ -19,3 +19,4 @@ app.register_blueprint(get_question_route)
 
 if __name__ == '__main__':
     app.run(debug=True)
+    
