@@ -1,11 +1,13 @@
 from flask import request
 from flaskr.routes.common import Blueprint, CLIENT, response_generator, jsonify
+from flaskr.auth import validate_api_key
 
 get_question_route = Blueprint('get_question_route', __name__)
 
 questions_collection = CLIENT.get_database('ScoreUp').get_collection('questions')
 
 @get_question_route.route('/get_question', methods=["POST"])
+@validate_api_key
 def get_question():
 
     body = request.get_json()
