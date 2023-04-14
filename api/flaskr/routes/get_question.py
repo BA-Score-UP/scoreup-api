@@ -12,15 +12,18 @@ def get_question():
 
     body = request.get_json()
 
-    if "macro_subject" not in body:
+    if ("macro_subject" not in body and "micro_subject" not in body) or "quantity" not in body:
         return response_generator(
             400,
-            "The macro subject parameter MUST be included"
+            "The request should contain at least a macro_subject or a micro_subject and a quantity of questions"
         )
+
+    quantity = body['quantity']
+    del body['quantity']
     
-    fit_questions = list(
-        questions_collection.find(body)
-    )
+    fit_questions = list( questions_collection.find (
+        body
+    ).limit(quantity))
 
     response = response_generator(
         status_code=200, 
@@ -30,3 +33,4 @@ def get_question():
     )
     
     return jsonify(response)
+    
