@@ -1,28 +1,32 @@
 from flask import request
 from flaskr.routes.common import Blueprint, CLIENT, response_generator, jsonify
+
 from flaskr.auth import validate_api_key
 
-get_question_route = Blueprint('get_question_route', __name__)
+get_question_route: Blueprint = Blueprint('get_question_route', __name__)
 
 questions_collection = CLIENT.get_database('ScoreUp').get_collection('questions')
 
 @get_question_route.route('/get_question', methods=["POST"])
 @validate_api_key
-def get_question():
+def get_question() -> dict:
 
-    body = request.get_json()
+    body: dict = request.get_json()
 
-    if "macro_subject" not in body:
+    if ("macro_subject" not in body and "micro_subject" not in body) or "quantity" not in body:
         return response_generator(
             400,
-            "The macro subject parameter MUST be included"
+            "The request should contain at least a macro_subject or a micro_subject and a quantity of questions"
         )
-    
-    fit_questions = list(
-        questions_collection.find(body)
-    )
 
-    response = response_generator(
+    quantity: int = body['quantity']
+    del body['quantity']
+
+    fit_questions: list = list( questions_collection.find (
+        body
+    ).limit(quantity))
+
+    response: dict = response_generator(
         status_code=200, 
         message='Success', 
         content_name='Questions', 
@@ -30,3 +34,4 @@ def get_question():
     )
     
     return jsonify(response)
+    
