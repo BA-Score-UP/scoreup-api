@@ -1,6 +1,7 @@
 from flask import request
-from flaskr.routes.common import Blueprint, CLIENT, response_generator, jsonify
+from random import sample
 
+from flaskr.routes.common import Blueprint, CLIENT, response_generator, jsonify
 from flaskr.auth import validate_api_key
 
 get_question_route: Blueprint = Blueprint('get_question_route', __name__)
@@ -24,13 +25,15 @@ def get_question() -> dict:
 
     fit_questions: list = list( questions_collection.find (
         body
-    ).limit(quantity))
+    ))
+
+    request_questions: list = sample(fit_questions, quantity)
 
     response: dict = response_generator(
         status_code=200, 
         message='Success', 
         content_name='Questions', 
-        content=fit_questions
+        content=request_questions
     )
     
     return jsonify(response)
