@@ -6,3 +6,4 @@ class CustomJSONEncoder(JSONEncoder):
         if isinstance(obj, ObjectId):
             return str(obj)
         return super().default(obj)
+        
