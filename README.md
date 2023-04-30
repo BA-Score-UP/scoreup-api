@@ -34,19 +34,6 @@
 ## Usage
 Make shure having the "Api-Key" in your Header
 ### Question endpoints
-GET .../question/get_subjects
-eg. RESPONSE:
-```json
-{
-    "Subjects": {
-        "Ciências Humanas": [ ],
-        "Ciências da Natureza": [ ],
-        "Inglês": [ ],
-        "Matemática": [ ],
-        "Português": [ ]
-    }
-}
-```
 GET .../question/get_filtered
 eg. REQUEST:
 ```json
@@ -75,5 +62,35 @@ eg. RESPONSE:
             "year": "2022"
         }
     ]
+}
+```
+
+## Subject endpoints
+GET .../subject/get_subjects
+eg. RESPONSE:
+```json
+{
+    "Subjects": {
+        "Ciências Humanas": [ ],
+        "Ciências da Natureza": [ ],
+        "Inglês": [ ],
+        "Matemática": [ ],
+        "Português": [ ]
+    }
+}
+```
+
+GET .../subject/get_question_ammount_by_subject
+eg. REQUEST:
+```json
+{
+    "macro_subject": "Português",
+    "micro_subject": "Arte e Literatura"
+}
+```
+eg. RESPONSE:
+```json
+{
+    "Ammount": 2
 }
 ```
