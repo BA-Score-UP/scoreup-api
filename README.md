@@ -1,12 +1,12 @@
 # ScoreUP RESTful API 
 ## Main libraries used:
-1. Pymongo[srv] - A ibrary for interacting with MongoDB, with added support for SRV records.
+1. Pymongo[srv] - A library for interacting with MongoDB, with added support for SRV records.
 2. Flask - A micro web framework that allows building web applications quickly and easily.
-3. Python-dotenv - Alibrary for loading environment variables from a .env file into the OS environment variables.
-4. Gunicorn - A server for Unix that allows multiple worker processes to handle requests simultaneously.
+3. Python-dotenv - A library for loading environment variables from a .env file into the OS environment variables.
+4. Gunicorn - A UNIX server that allows multiple worker processes to handle requests simultaneously.
 5. Pipenv - A package manager that provides a virtual environment, dependency resolver, and lockfile for managing dependencies in Python projects.
 
-## Project structure:
+## Folder structure:
 ```
 .
 ├─── api/
@@ -16,23 +16,27 @@
 ├─── app.py
 └─── config.py
 ```
-
 * api/ - holds all endpoints and routes.
 * services/ - where the routes logic are implementes.
 * connections/ - app external connections (such as DB).
-* utils/ - methos that are used all around the app.
+* utils/ - methods that are used all around the app.
 * app.py - flask application initialization.
 * config.py - all global app settings.
 
 ## Running 
-1. Clone repository.
-    1.5. pip install pipenv
-2. pipenv install.
-3. pienv shell.
-4. Start server by running python app.py
+1. Clone the repository:
+```git clone https://github.com/BA-Score-UP/scoreup-api.git```
+2. Make sure that pipenv is installed:
+```pip install pipenv```
+3. Install dependencies via pipenv.
+```pipenv install```
+3. Start the virtual environment.
+```pipenv shell```
+4. Start the local debug server:
+```python app.py```
 
 ## Usage
-Make shure having the "Api-Key" in your Header
+Make sure having "Api-Key" in your Header
 ### Question endpoints
 GET .../question/get_filtered
 eg. REQUEST:
@@ -50,7 +54,7 @@ eg. RESPONSE:
         {
             "_id": "640e6fc22176975a1e70df4e",
             "answer": 2,
-            "explanation": "Expalnation string",
+            "explanation": "Explanation string",
             "macro_subject": "Português",
             "micro_subject": "Literatura",
             "options": [ ],
@@ -64,7 +68,6 @@ eg. RESPONSE:
     ]
 }
 ```
-
 ## Subject endpoints
 GET .../subject/get_subjects
 eg. RESPONSE:
@@ -79,7 +82,6 @@ eg. RESPONSE:
     }
 }
 ```
-
 GET .../subject/get_question_ammount_by_subject
 eg. REQUEST:
 ```json
