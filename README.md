@@ -24,19 +24,14 @@
 * config.py - all global app settings.
 
 ## Running 
-1. Clone the repository:
-```git clone https://github.com/BA-Score-UP/scoreup-api.git```
-2. Make sure that pipenv is installed:
-```pip install pipenv```
-3. Install dependencies via pipenv.
-```pipenv install```
-3. Start the virtual environment.
-```pipenv shell```
-4. Start the local debug server:
-```python app.py```
+1. Clone the repository: ```git clone https://github.com/BA-Score-UP/scoreup-api.git```
+2. Make sure that pipenv is installed: ```pip install pipenv```
+3. Install dependencies via pipenv: ```pipenv install```
+3. Start the virtual environment: ```pipenv shell```
+4. Start the local debug server: ```python app.py```
 
 ## Usage
-Make sure having "Api-Key" in your Header
+Make sure having a valid "Api-Key" in your Header
 ### Question endpoints
 GET .../question/get_filtered
 eg. REQUEST:
