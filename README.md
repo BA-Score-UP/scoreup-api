@@ -1,13 +1,16 @@
-# ScoreUP RESTful API 
-## Main libraries used:
+# ScoreUP RESTful API
+
+## Main libraries used
+
 1. Pymongo[srv] - A library for interacting with MongoDB, with added support for SRV records.
 2. Flask - A micro web framework that allows building web applications quickly and easily.
 3. Python-dotenv - A library for loading environment variables from a .env file into the OS environment variables.
 4. Gunicorn - A UNIX server that allows multiple worker processes to handle requests simultaneously.
 5. Pipenv - A package manager that provides a virtual environment, dependency resolver, and lockfile for managing dependencies in Python projects.
 
-## Folder structure:
-```
+## Folder structure
+
+```tree
 .
 ├─── api/
 ├─── services/
@@ -16,6 +19,7 @@
 ├─── app.py
 └─── config.py
 ```
+
 * api/ - holds all endpoints and routes.
 * services/ - where the routes logic are implementes.
 * connections/ - app external connections (such as DB).
@@ -23,18 +27,24 @@
 * app.py - flask application initialization.
 * config.py - all global app settings.
 
-## Running 
+## Running
+
 1. Clone the repository: ```git clone https://github.com/BA-Score-UP/scoreup-api.git```
 2. Make sure that pipenv is installed: ```pip install pipenv```
 3. Install dependencies via pipenv: ```pipenv install```
-3. Start the virtual environment: ```pipenv shell```
-4. Start the local debug server: ```python app.py```
+4. Start the virtual environment: ```pipenv shell```
+5. Start the local debug server: ```python app.py```
 
 ## Usage
-Make sure having a valid "Api-Key" in your Header
+
+⚠️ Make sure having a valid "Api-Key" in your Header ⚠️
+
 ### Question endpoints
-GET .../question/get_filtered
+
+#### GET .../question/get_filtered:
+
 eg. REQUEST:
+
 ```json
 {
     "macro_subject": "Português",
@@ -42,7 +52,9 @@ eg. REQUEST:
     "quantity": 1
 }
 ```
+
 eg. RESPONSE:
+
 ```json
 {
     "Questions": [
@@ -63,9 +75,13 @@ eg. RESPONSE:
     ]
 }
 ```
+
 ### Subject endpoints
-GET .../subject/get_subjects
+
+#### GET .../subject/get_subjects:
+
 eg. RESPONSE:
+
 ```json
 {
     "Subjects": {
@@ -77,15 +93,20 @@ eg. RESPONSE:
     }
 }
 ```
-GET .../subject/get_question_ammount_by_subject
+
+#### GET .../subject/get_question_ammount_by_subject:
+
 eg. REQUEST:
+
 ```json
 {
     "macro_subject": "Português",
     "micro_subject": "Arte e Literatura"
 }
 ```
+
 eg. RESPONSE:
+
 ```json
 {
     "Ammount": 2
