@@ -63,7 +63,7 @@ eg. RESPONSE:
     ]
 }
 ```
-## Subject endpoints
+### Subject endpoints
 GET .../subject/get_subjects
 eg. RESPONSE:
 ```json
