@@ -41,7 +41,7 @@
 
 ### Question endpoints
 
-#### GET .../question/get_filtered:
+#### GET .../question/get_filtered
 
 eg. REQUEST:
 
@@ -78,7 +78,7 @@ eg. RESPONSE:
 
 ### Subject endpoints
 
-#### GET .../subject/get_subjects:
+#### GET .../subject/get_subjects
 
 eg. RESPONSE:
 
@@ -94,7 +94,7 @@ eg. RESPONSE:
 }
 ```
 
-#### GET .../subject/get_question_ammount_by_subject:
+#### GET .../subject/get_question_ammount_by_subject
 
 eg. REQUEST:
 
