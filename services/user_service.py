@@ -5,7 +5,7 @@ from connections import *
 
 @validate_api_key
 def set_user_service(body: dict) -> dict:
-    id: int = body['user_ID']
+    id: str = body['user_ID']
     
     existing_user = user_collection.find_one({
         'user_hash': id
@@ -13,7 +13,7 @@ def set_user_service(body: dict) -> dict:
 
     if existing_user:
         response_data = {'Message': 'User already exists!'}
-        return make_response(response_data, 409)  # HTTP status code 409 for conflict
+        return make_response(response_data, 409)
 
     new_user: dict = {
         'user_hash': id,
@@ -28,7 +28,7 @@ def set_user_service(body: dict) -> dict:
 
 @validate_api_key
 def set_answer_service(body: dict) -> dict:
-    id: int = body['user_ID']
+    id: str = body['user_ID']
     answer_id: int = body['answer_ID']
     status: str = body['status']
 
@@ -69,7 +69,7 @@ def set_answer_service(body: dict) -> dict:
 
 @validate_api_key
 def get_answer_service(body: dict) -> dict:
-    id: int = body['user_ID']
+    id: str = body['user_ID']
     status: str = body['status']
 
     user = user_collection.find_one({'user_hash': id})
