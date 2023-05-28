@@ -29,7 +29,7 @@ def set_user_service(body: dict) -> dict:
 @validate_api_key
 def set_answer_service(body: dict) -> dict:
     id: str = body['user_ID']
-    answer_id: int = body['answer_ID']
+    answer_id: str = body['answer_ID']
     status: str = body['status']
 
     user = user_collection.find_one({'user_hash': id})
