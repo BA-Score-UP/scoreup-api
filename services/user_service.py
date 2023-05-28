@@ -88,3 +88,21 @@ def get_answer_service(body: dict) -> dict:
     else:
         response_data = {'Message': 'User not found!'}
         return make_response(response_data, 404)
+
+@validate_api_key
+def get_answer_amount_service(body: dict) -> dict:
+    id: str = body['user_ID']
+
+    user = user_collection.find_one({'user_hash': id})
+
+    if user:
+        correct_amount: int = len(user.get('correct_answers', []))
+        wrong_amount: int = len(user.get('wrong_answers', []))
+
+        response_data = {
+            'ammount': (correct_amount + wrong_amount)
+        }
+        return make_response(response_data, 200)
+    else:
+        response_data = {'Message': 'User not found!'}
+        return make_response(response_data, 404)
