@@ -22,3 +22,4 @@ def get_answer() -> dict:
 def get_answer_amount() -> dict:
     body = request.get_json()
     return get_answer_amount_service(body)
+
