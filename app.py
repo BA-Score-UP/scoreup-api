@@ -8,6 +8,7 @@ app.json_encoder = CustomJSONEncoder
 app.register_blueprint(question_route)
 app.register_blueprint(subject_route)
 app.register_blueprint(user_route)
+app.register_blueprint(statistics_route)
 
 if __name__ == '__main__':
     app.run(debug=True)
